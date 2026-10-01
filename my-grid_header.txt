@@ -1,0 +1,31 @@
+netcdf my-grid {
+dimensions:
+	ny = 140 ;
+	nx = 235 ;
+variables:
+	double y(ny, nx) ;
+		y:_FillValue = NaN ;
+		y:long_name = "array of t-grid latitudes" ;
+		y:units = "degrees_north" ;
+	double x(ny, nx) ;
+		x:_FillValue = NaN ;
+		x:long_name = "array of t-grid longitutes" ;
+		x:units = "degrees_east" ;
+	int mask(ny, nx) ;
+		mask:long_name = "landsea mask at t points: 1 ocean, 0 land" ;
+		mask:units = "nondim" ;
+	double depth_raw(ny, nx) ;
+		depth_raw:_FillValue = NaN ;
+		depth_raw:long_name = "t-grid cell depth (raw, before masking)" ;
+		depth_raw:units = "m" ;
+	double depth(ny, nx) ;
+		depth:_FillValue = NaN ;
+		depth:long_name = "t-grid cell masked depth" ;
+		depth:units = "m" ;
+
+// global attributes:
+		:date_created = "2026-09-30T14:44:13.752992" ;
+		:title = "MOM6 topography file" ;
+		:min_depth = 5. ;
+		:max_depth = 79. ;
+}
